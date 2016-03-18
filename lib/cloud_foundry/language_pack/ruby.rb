@@ -6,8 +6,4 @@ class LanguagePack::Ruby < LanguagePack::Base
 
     set_env_default  "LD_LIBRARY_PATH", "$HOME/ld_library_path"
   end
-
-  def setup_export
-    # noop
-  end
 end
