@@ -34,14 +34,14 @@ for DEB in $(ls -1 $APT_CACHE_DIR/archives/*.deb); do
   dpkg -x $DEB $BUILD_DIR/.apt/
 done
 
-export PATH=$PATH:/app/.apt/usr/bin
-export C_INCLUDE_PATH=$C_INCLUDE_PATH:/app/.apt/usr/include:/app/.apt/usr/include/xmlsec1
-export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/app/.apt/usr/include:/app/.apt/usr/include/xmlsec1
-export INCLUDE_PATH=/app/.apt/usr/include:/app/.apt/usr/include/xmlsec1:$INCLUDE_PATH
-export LIBRARY_PATH=$LIBRARY_PATH:/app/.apt/usr/lib/x86_64-linux-gnu:/app/.apt/usr/lib/i386-linux-gnu:/app/.apt/usr/lib
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/app/.apt/usr/lib/x86_64-linux-gnu:/app/.apt/usr/lib/i386-linux-gnu:/app/.apt/usr/lib
-export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/app/.apt/usr/lib/x86_64-linux-gnu/pkgconfig:/app/.apt/usr/lib/i386-linux-gnu/pkgconfig:/app/.apt/usr/lib/pkgconfig
-export CPATH=/app/.apt/usr/include:$CPATH
-export CPPPATH=/app/.apt/usr/include:$CPPPATH
+export PATH=$PATH:$BUILD_DIR/.apt/usr/bin
+export C_INCLUDE_PATH=$C_INCLUDE_PATH:$BUILD_DIR/.apt/usr/include:$BUILD_DIR/.apt/usr/include/xmlsec1
+export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:$BUILD_DIR/.apt/usr/include:$BUILD_DIR/.apt/usr/include/xmlsec1
+export INCLUDE_PATH=$BUILD_DIR/.apt/usr/include:$BUILD_DIR/.apt/usr/include/xmlsec1:$INCLUDE_PATH
+export LIBRARY_PATH=$LIBRARY_PATH:$BUILD_DIR/.apt/usr/lib/x86_64-linux-gnu:$BUILD_DIR/.apt/usr/lib/i386-linux-gnu:$BUILD_DIR/.apt/usr/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$BUILD_DIR/.apt/usr/lib/x86_64-linux-gnu:$BUILD_DIR/.apt/usr/lib/i386-linux-gnu:$BUILD_DIR/.apt/usr/lib
+export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:$BUILD_DIR/.apt/usr/lib/x86_64-linux-gnu/pkgconfig:$BUILD_DIR/.apt/usr/lib/i386-linux-gnu/pkgconfig:$BUILD_DIR/.apt/usr/lib/pkgconfig
+export CPATH=$BUILD_DIR/.apt/usr/include:$CPATH
+export CPPPATH=$BUILD_DIR/.apt/usr/include:$CPPPATH
 
 $(dirname $0)/compile.ruby $@
