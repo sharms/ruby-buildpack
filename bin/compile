@@ -44,4 +44,4 @@ export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/app/.apt/usr/lib/x86_64-linux-gnu/pkgco
 export CPATH=/app/.apt/usr/include:$CPATH
 export CPPPATH=/app/.apt/usr/include:$CPPPATH
 
-./compile.ruby $@
+$(dirname $0)/compile.ruby $@
