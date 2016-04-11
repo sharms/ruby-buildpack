@@ -2,6 +2,8 @@
 # Add heroku-buildpack-apt paths
 set -e
 set -x
+
+echo "Compiling"
 BUILD_DIR=$1
 CACHE_DIR=$2
 LP_DIR=`cd $(dirname $0); cd ..; pwd`
